@@ -1,0 +1,13 @@
+[package]
+name = "signal-monitor"
+version = "0.1.1"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib"]
+bench = false
+test = false
+
+[dependencies]
+log = "0.4.0"
+signal-hook = "0.3.17"
