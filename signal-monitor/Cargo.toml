@@ -9,5 +9,5 @@ bench = false
 test = false
 
 [dependencies]
-log = "0.4.0"
+log = "*"
 signal-hook = "0.3.17"
