@@ -1,0 +1,18 @@
+[package]
+name = "sdp"
+version = "0.1.5"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib"]
+bench = false
+test = false
+
+[dependencies.rand]
+version = "0.8.0"
+
+[dependencies.thiserror]
+version = "1"
+
+[dependencies.url]
+version = "2.0"
