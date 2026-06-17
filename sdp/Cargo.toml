@@ -1,7 +1,8 @@
 [package]
 name = "sdp"
-version = "0.1.5"
-edition = "2021"
+version = "0.1.0"
+edition = "2018"
+license = "MIT"
 
 [lib]
 crate-type = ["rlib"]
@@ -15,4 +16,4 @@ version = "0.8.0"
 version = "1"
 
 [dependencies.url]
-version = "2.0"
+version = "2.0.0"
