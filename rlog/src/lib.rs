@@ -25,6 +25,7 @@ pub struct ThreadLogOptions {
 pub struct LogOptions {
     pub rolling: RollingFileOption,
     pub stdout: bool,
+    pub panic_hook: bool,
     pub log_off_modules: HashSet<String>,
     pub thread_options: ThreadLogOptions,
 }
@@ -34,6 +35,7 @@ impl Default for LogOptions {
         Self {
             rolling: RollingFileOption::default(),
             stdout: false,
+            panic_hook: false,
             log_off_modules: HashSet::new(),
             thread_options: ThreadLogOptions {
                 appender_name: format!("thread_logger"),
@@ -153,5 +155,13 @@ fn init_log4rs(options: &LogOptions) -> log4rs::Handle {
 
     let config = builder.build(root.build(LevelFilter::Trace)).unwrap();
 
-    log4rs::init_config(config).unwrap()
+    let handle = log4rs::init_config(config).unwrap();
+
+    if options.panic_hook {
+        log_panics::Config::new()
+            .backtrace_mode(log_panics::BacktraceMode::Resolved)
+            .install_panic_hook();
+    }
+
+    handle
 }

@@ -16,3 +16,4 @@ log = "*"
 log4rs = "1.4.0"
 parking_lot = "0.12.0"
 zstd = "0.13"
+log-panics = { version = "*", features = ["with-backtrace"]}
